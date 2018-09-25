@@ -3,8 +3,8 @@
 <title>Urop Project Interface 2.0</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" type = "text/css" href="http://psdb.aglt2.org/urop-new/urop/w3.css/"> -->
-<link rel="stylesheet" type = "text/css" href="http://psdb.aglt2.org/urop-new/urop/styles/w3.css/">
+<!-- <link rel="stylesheet" type = "text/css" href="http://psdb.aglt2.org/urop-new/urop/styles/w3.css/"> -->
+<link rel="stylesheet" type = "text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
@@ -12,27 +12,47 @@ body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
 </style>
-<body>
+<body onload="updateClock(); setInterval('updateClock()', 1000 );">
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-blue-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
-    <h3 class="w3-padding-64"><b>Company<br>Name</b></h3>
+    <h3 class="w3-padding-64">
+      <!-- The Urop Logo Image-->
+      <a href="https://lsa.umich.edu/urop" target = "_blank" class="image-link">
+        <img class="images" src="images/UROPlogo.jpg" alt="Urop logo" style="width:100px;height:100px" >
+      </a>
+    </h3>
   </div>
   <div class="w3-bar-block">
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Showcase</a> 
-    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a> 
+    <a href="#introduction" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Introduction</a> 
+    <a href="#traceroute" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Traceroute Query</a> 
+    <a href="#packetloss" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packet Loss Query</a> 
     <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a> 
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
+    <!-- <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> -->
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+  </div>
+  <div class="w3-container">
+    <h3 >
+      <!-- The perfSONAR image-->
+      <a href="https://www.perfsonar.net" target = "_blank" class="image-link">
+        <img class="images" src="images/pSLogo.png" alt="perfSONAR logo" style="width:209px;height:65px" >
+      </a>
+    </h3>
+  </div>
+  <div class="w3-container">
+    <h3>
+      <!-- A self-updating clock-->
+      <p id="clock"></p>
+    </h3>
   </div>
 </nav>
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+<header class="w3-container w3-top w3-hide-large w3-blue-grey w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-blue-grey w3-margin-right" onclick="w3_open()">☰</a>
   <span>Company Name</span>
 </header>
 
@@ -43,13 +63,17 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
+  <div class="w3-container" style="margin-top:80px" id="introduction">
     <h1 class="w3-xxxlarge"><b>perfSONAR Analytics Summarization Tool</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Introduction.</b></h1>
+    <hr style="width:50px;border:5px solid grey" class="w3-round">
+      <p>This tool gives an easier visualization of the data you are interested in.</p>
+      <p>To use this toolkit, please select your source site, destination site. The time range will be automatically filled for you, fetching the earlest and latest timestamp availabe for your query. You can also customize the timestamp box on your own.
+    </p>
   </div>
   
   <!-- Photo grid (modal) -->
+  <!--
   <div class="w3-row-padding">
     <div class="w3-half">
       <img src="/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
@@ -63,8 +87,10 @@ body {font-size:16px;}
       <img src="/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
     </div>
   </div>
+  -->
 
   <!-- Modal for full size images on click-->
+  <!--
   <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
     <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
@@ -72,65 +98,108 @@ body {font-size:16px;}
       <p id="caption"></p>
     </div>
   </div>
+  -->
 
-  <!-- Services -->
-  <div class="w3-container" id="services" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Services.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
-    <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
+  <!-- Traceroute -->
+  <div class="w3-container" id="traceroute" style="margin-top:75px">
+    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Query.</b></h1>
+    <hr style="width:50px;border:5px solid grey" class="w3-round">
+    <form action=result.php method="post">
+      <table class="w3-table w3-centered">
+        <tr>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+        </tr>
+        <tr>
+          <td>
+            <input list="browsers" name="src" id ="browser1">
+            <datalist id="srcList">
+            </datalist>
+          </td>
+          <td>
+            <input list="browsers" name="src" id ="browser1">
+            <datalist id="srcList">
+            </datalist>
+          </td>
+          <td>
+            <input id="startTime" name="startTime" type="datetime-local" min="2017-12-01T01:00">>
+          </td>
+          <td>
+            <input id="endTime" name="endTime" type="datetime-local" min="2017-12-01T01:00">
+            <datalist id="srcList">
+            </datalist>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="Query" class="w3-button w3-black">
+          </td>
+    </form>      
+          <td>
+            <button id = "button2" class="w3-button w3-black">Reset</button>
+          </td>
+        </tr>
+      </table>
+
+  </div>
+
+  <!-- Packetloss -->
+  <div class="w3-container" id="packetloss" style="margin-top:75px">
+    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Packet loss Query.</b></h1>
+    <hr style="width:50px;border:5px solid grey" class="w3-round">
+    <p>Coming up soon!</p>
+    
   </div>
   
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Designers.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>The best team in the world.</p>
-    <p>We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <p><b>Our designers are thoughtfully chosen</b>:</p>
+    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Designers.</b></h1>
+    <hr style="width:50px;border:5px solid grey" class="w3-round">
+      <p>Our team consists of one professor and two undergraduate students at the University of Michigan.</p>
+      <p>
+      We started this project in winter, 2017.
+      </p>
+      <p><b>A brief introduction to the designers</b>:</p>
   </div>
 
   <!-- The Team -->
   <div class="w3-row-padding w3-grayscale">
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-light-grey">
-        <img src="/w3images/team2.jpg" alt="John" style="width:100%">
+        <img src="/w3images/team2.jpg" alt="Shawn" style="width:100%">
         <div class="w3-container">
-          <h3>John Doe</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <h3>Shawn McKee</h3>
+            <p class="w3-opacity">Project Mentor</p>
+            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
         </div>
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-light-grey">
-        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+        <img src="/w3images/team1.jpg" alt="Yunjia" style="width:100%">
         <div class="w3-container">
-          <h3>Jane Doe</h3>
-          <p class="w3-opacity">Designer</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <h3>Yunjia(Jason) Xu</h3>
+            <p class="w3-opacity">Interface Designer</p>
+            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
         </div>
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-light-grey">
-        <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
+        <img src="/w3images/team3.jpg" alt="Zerses" style="width:100%">
         <div class="w3-container">
-          <h3>Mike Ross</h3>
-          <p class="w3-opacity">Architect</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <h3>Zerses Cooper</h3>
+            <p class="w3-opacity">Database Architect</p>
+            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Packages / Pricing Tables -->
+  <!--
   <div class="w3-container" id="packages" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>Packages.</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -174,12 +243,13 @@ body {font-size:16px;}
       </ul>
     </div>
   </div>
+  -->
   
-  <!-- Contact -->
+  
   <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
+    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Contact.</b></h1>
+    <hr style="width:50px;border:5px solid grey" class="w3-round">
+      <p>Do you have any advice or questions? We always love to improve our product!</p>
     <form action="/action_page.php" target="_blank">
       <div class="w3-section">
         <label>Name</label>
@@ -221,6 +291,10 @@ function onClick(element) {
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
+}
+// Script to update a clock
+function updateClock() {
+  document.getElementById("clock").innerHTML = Date();
 }
 </script>
 
