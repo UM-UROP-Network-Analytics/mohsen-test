@@ -114,12 +114,12 @@ body {font-size:16px;}
         </tr>
         <tr>
           <td>
-            <input list="browsers" name="src" id ="browser1">
+            <input list="srcList" name="src" id ="browser1">
             <datalist id="srcList">
             </datalist>
           </td>
           <td>
-            <input list="browsers" name="src" id ="browser2">
+            <input list="desList" name="src" id ="browser2">
             <datalist id="desList">
             </datalist>
           </td>
