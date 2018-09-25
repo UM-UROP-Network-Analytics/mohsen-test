@@ -45,7 +45,7 @@ body {font-size:16px;}
   <div class="w3-container">
     <h3>
       <!-- A self-updating clock-->
-      <p id="clock"></p>
+      <p id="clock" class="w3-small"></p>
     </h3>
   </div>
 </nav>
@@ -119,8 +119,8 @@ body {font-size:16px;}
             </datalist>
           </td>
           <td>
-            <input list="browsers" name="src" id ="browser1">
-            <datalist id="srcList">
+            <input list="browsers" name="src" id ="browser2">
+            <datalist id="desList">
             </datalist>
           </td>
           <td>
@@ -295,6 +295,47 @@ function onClick(element) {
 // Script to update a clock
 function updateClock() {
   document.getElementById("clock").innerHTML = Date();
+}
+
+function populateZone() {
+  var zones ='';
+    <?php
+      $host        = "psdb.aglt2.org";
+      #$host        = "localhost";
+      $port        = "5432";
+      $dbname      = "psdb_urop";
+      $user = "postgres";
+      $password = "xzk3136";
+      $dbh1 = new PDO( "pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
+      $sql_query_one="select domain||'(ipv4)' as domain from serverlookup where ipv4 IS NOT NULL and bandwidth IS TRUE;";
+      $sql_query_two="select domain||'(ipv6)' as domain from serverlookup where ipv6 IS NOT NULL and bandwidth IS TRUE;";
+      $list = $dbh1->query($sql_query_one) or die('error');
+      $list_two = $dbh1->query($sql_query_two) or die('error');
+      while($row_list = $list->fetch(PDO::FETCH_ASSOC)):
+    ?>
+        
+      zones += "<option value=\"";
+      zones += "<?php echo $row_list["domain"]; ?>";
+      zones += "\"></option>";
+    
+    <?php
+      endwhile;
+    ?>
+    
+    <?php
+      while($row_list_two = $list_two->fetch(PDO::FETCH_ASSOC)):
+    ?>
+      zones += "<option value=\"";
+      zones += "<?php echo $row_list_two["domain"]; ?>";
+      zones += "\"></option>";
+    <?php
+      endwhile;
+      pg_close($dbh1);
+    ?>
+    
+    document.getElementById("srcList").innerHTML = zones;
+    document.getElementById("desList").innerHTML = zones;
+
 }
 </script>
 
