@@ -124,7 +124,7 @@ body {font-size:16px;}
             </datalist>
           </td>
           <td>
-            <input id="startTime" name="startTime" type="datetime-local" min="2017-12-01T01:00">>
+            <input id="startTime" name="startTime" type="datetime-local" min="2017-12-01T01:00">
           </td>
           <td>
             <input id="endTime" name="endTime" type="datetime-local" min="2017-12-01T01:00">
