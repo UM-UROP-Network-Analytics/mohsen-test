@@ -138,7 +138,7 @@ body {font-size:16px;}
           </td>
     </form>      
           <td>
-            <button id = "button2" class="w3-button w3-black">Reset</button>
+            <button type="reset" onclick="reset()" id = "button2" class="w3-button w3-black">Reset</button>
           </td>
         </tr>
       </table>
@@ -296,7 +296,7 @@ function onClick(element) {
 function updateClock() {
   document.getElementById("clock").innerHTML = Date();
 }
-
+// Function to populate src zones and des zones when the webpage loads
 function populateZone() {
   var zones ='';
     <?php
@@ -336,6 +336,14 @@ function populateZone() {
     document.getElementById("srcList").innerHTML = zones;
     document.getElementById("desList").innerHTML = zones;
 
+}
+
+function reset() {
+    document.getElementById("browser1").value = "";
+    document.getElementById("browser2").value = "";
+    document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
+    document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
+    populateZone();
 }
 </script>
 
