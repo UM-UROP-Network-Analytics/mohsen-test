@@ -64,7 +64,12 @@ body {font-size:16px;}
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="introduction">
-    <h1 class="w3-xxxlarge"><b>perfSONAR Analytics Summarization Tool</b></h1>
+    <h1 class="w3-xxxlarge">
+      <a href="https://www.perfsonar.net" target = "_blank" class="image-link">
+        <img class="images" src="images/pSLogo.png" alt="perfSONAR logo" style="width:209px;height:65px" >
+      </a>
+      <b> Analytics Summarization Tool</b>
+    </h1>
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Introduction.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
       <p>This tool gives an easier visualization of the data you are interested in.</p>
