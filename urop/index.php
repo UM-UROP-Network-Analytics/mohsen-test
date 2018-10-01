@@ -361,7 +361,7 @@ function limitDes(str) {
         {// code for IE6, IE5
             xhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhttp.open("POST", "http://psdb.aglt2.org/Urop/des_get.php", true);
+        xhttp.open("POST", "http://psdb.aglt2.org/urop-new/urop/limDest.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange=function()
         {
