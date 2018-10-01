@@ -1,15 +1,6 @@
 <?php
     $src = $_POST["src"];
-    $ip = $_POST["ip"];
-    include 'dtb.php';
-    $sql_query_domain="select " . $ip .  " as " . $ip . " from serverlookup where domain = '" . $src . "';";
-    $list_three = $dbh->query($sql_query_domain);
-    
-    while($row_list_domain = $list_three->fetch(PDO::FETCH_ASSOC)):
-    $six = $row_list_domain[$ip];
-    endwhile;
-    
-    $sql_query_dest = "select DISTINCT dest as dest from traceroute where src = '" . $six . "';";
+    $sql_query_dest = "select DISTINCT dest as dest from traceroute where src = '" . $src . "';";
     
     
     
