@@ -348,6 +348,38 @@ function populateZone() {
 
 }
 
+function limitDes(str) {
+    
+        var xhttp;
+        var parameter = "src=" + str;
+        
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("POST", "http://psdb.aglt2.org/Urop/des_get.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange=function()
+        {
+            if (xhttp.readyState==4 && xhttp.status==200)
+            {
+                document.getElementById("browser2").innerHTML= xhttp.responseText;
+            }
+        }
+        
+        xhttp.send(parameter);
+        // var other_box = document.getElementById("box2").value;
+    
+    // if(other_box) {
+    //     default_time();
+    // }
+    
+}
+
 function reset() {
     document.getElementById("browser1").value = "";
     document.getElementById("browser2").value = "";
