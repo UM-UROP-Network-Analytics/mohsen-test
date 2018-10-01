@@ -312,17 +312,19 @@ function populateZone() {
       $user = "postgres";
       $password = "xzk3136";
       $dbh1 = new PDO( "pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
-      $sql_query_one="select domain||'(ipv4)' as domain from serverlookup where ipv4 IS NOT NULL and bandwidth IS TRUE;";
-      $sql_query_two="select domain||'(ipv6)' as domain from serverlookup where ipv6 IS NOT NULL and bandwidth IS TRUE;";
+      $sql_query_one="select domain||'(ipv4)' as domain, ipv4 as ipv4 from serverlookup where ipv4 is not null and bandwidth is true;";
+      $sql_query_two="select domain||'(ipv6)' as domain, ipv6 as ipv6 from serverlookup where ipv6 is not null and bandwidth is true;";
       $list = $dbh1->query($sql_query_one) or die('error');
       $list_two = $dbh1->query($sql_query_two) or die('error');
       while($row_list = $list->fetch(PDO::FETCH_ASSOC)):
     ?>
         
       zones += "<option value=\"";
+      zones += "<?php echo $row_list["ipv4"]; ?>";
+      zones += "\">"
       zones += "<?php echo $row_list["domain"]; ?>";
-      zones += "\"></option>";
-    
+      zones += "</option>";
+
     <?php
       endwhile;
     ?>
@@ -331,8 +333,11 @@ function populateZone() {
       while($row_list_two = $list_two->fetch(PDO::FETCH_ASSOC)):
     ?>
       zones += "<option value=\"";
+      zones += "<?php echo $row_list_two["ipv6"]; ?>";
+      zones += "\">"
       zones += "<?php echo $row_list_two["domain"]; ?>";
-      zones += "\">Hello</option>";
+      zones += "</option>";
+
     <?php
       endwhile;
       pg_close($dbh1);
