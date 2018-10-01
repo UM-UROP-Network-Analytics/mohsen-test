@@ -18,7 +18,7 @@ body {font-size:16px;}
 <nav class="w3-sidebar w3-blue-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
-    <h3 class="w3-padding-64">
+    <h3 class="w3-padding-32">
       <!-- The Urop Logo Image-->
       <a href="https://lsa.umich.edu/urop" target = "_blank" class="image-link">
         <img class="images" src="images/UROPlogo.jpg" alt="Urop logo" style="width:100px;height:100px" >
@@ -35,7 +35,7 @@ body {font-size:16px;}
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
   </div>
   <div class="w3-container">
-    <h3 >
+    <h3 class="w3-padding-32" >
       <!-- The perfSONAR image-->
       <a href="https://www.perfsonar.net" target = "_blank" class="image-link">
         <img class="images" src="images/pSLogo.png" alt="perfSONAR logo" style="width:209px;height:65px" >
@@ -65,10 +65,10 @@ body {font-size:16px;}
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="introduction">
     <h1 class="w3-xxxlarge">
-      <a href="https://www.perfsonar.net" target = "_blank" class="image-link">
+      <!-- <a href="https://www.perfsonar.net" target = "_blank" class="image-link">
         <img class="images" src="images/pSLogo.png" alt="perfSONAR logo" style="width:209px;height:65px" >
-      </a>
-      <b> Analytics Summarization Tool</b>
+      </a> -->
+      <b>perfSONAR Analytics Summarization Tool</b>
     </h1>
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Introduction.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
