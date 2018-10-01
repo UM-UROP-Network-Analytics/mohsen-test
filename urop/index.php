@@ -344,7 +344,7 @@ function populateZone() {
     ?>
     
     document.getElementById("srcList").innerHTML = zones;
-    document.getElementById("desList").innerHTML = zones;
+    //document.getElementById("desList").innerHTML = zones;
 
 }
 
