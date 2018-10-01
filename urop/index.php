@@ -332,7 +332,7 @@ function populateZone() {
     ?>
       zones += "<option value=\"";
       zones += "<?php echo $row_list_two["domain"]; ?>";
-      zones += "\"></option>";
+      zones += "\">Hello</option>";
     <?php
       endwhile;
       pg_close($dbh1);
