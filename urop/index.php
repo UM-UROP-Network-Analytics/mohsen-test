@@ -119,7 +119,7 @@ body {font-size:16px;}
         </tr>
         <tr>
           <td>
-            <input list="srcList" name="src" id ="browser1">
+            <input list="srcList" name="src" id ="browser1" onchange="limitDes(this.value)">
             <datalist id="srcList">
             </datalist>
           </td>
