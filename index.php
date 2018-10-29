@@ -352,7 +352,7 @@ function limitDes(str) {
     
         var xhttp;
         var parameter = "src=" + str;
-        alert(parameter); //To delete
+        //alert(parameter); //To delete
 
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -368,7 +368,6 @@ function limitDes(str) {
         {
             if (xhttp.readyState==4 && xhttp.status==200)
             {
-                alert(xhttp.responseText);
                 document.getElementById("desList").innerHTML= xhttp.responseText;
             }
         }
