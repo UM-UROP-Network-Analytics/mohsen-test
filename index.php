@@ -352,7 +352,7 @@ function limitDes(str) {
     
         var xhttp;
         var parameter = "src=" + str;
-        alert(parameter);
+        alert(parameter); //To delete
 
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -362,7 +362,7 @@ function limitDes(str) {
         {// code for IE6, IE5
             xhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhttp.open("POST", "http://psdb.aglt2.org/urop-new/urop/limDest.php", true);
+        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/limDest.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange=function()
         {
