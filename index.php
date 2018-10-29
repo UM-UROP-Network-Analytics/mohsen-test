@@ -352,7 +352,8 @@ function limitDes(str) {
     
         var xhttp;
         var parameter = "src=" + str;
-        
+        alert(parameter);
+
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
             xhttp=new XMLHttpRequest();

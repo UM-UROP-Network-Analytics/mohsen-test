@@ -22,7 +22,7 @@
     //     $site = $row_list_site["domain"];
     // }
     
-    // $option = "<option value = \"" . $site . "\"></option>"
+    // $option = "<option value = \"" . $site . "\"></option>";
         $option = "<option value = \"" . $dest . "\"></option>";
     echo $option;
     endwhile;
