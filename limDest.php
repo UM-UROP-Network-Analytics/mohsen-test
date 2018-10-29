@@ -13,7 +13,11 @@
     
     while($row_list_dest = $list->fetch(PDO::FETCH_ASSOC)):
         $dest = $row_list_dest["dest"];
-        $option = "<option value = \"" . $dest . "\"></option>";
+        $sql_query_name = "select distinct sitename as sitename from serverlookup where ipv4 = '" . $dest . "' or ipv6 = '" . $dest . "';";
+        $name = $dbh->query($sql_query_name);
+        $row_list_name = $name->fetch(PDO::FETCH_ASSOC);
+        $name = $row_list_name["sitename"];
+        $option = "<option value = \"" . $dest . "\">" . $name . "</option>";
         echo $option;
     endwhile;
    
