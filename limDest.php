@@ -1,7 +1,7 @@
 <?php
     $src = $_POST["src"];
     $sql_query_dest = "select DISTINCT dest as dest from traceroute where src = '" . $src . "';";
-    
+     include 'dtb.php';
     
     
     $list_four = $dbh->query($sql_query_dest);
