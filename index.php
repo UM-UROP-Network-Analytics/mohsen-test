@@ -368,6 +368,7 @@ function limitDes(str) {
         {
             if (xhttp.readyState==4 && xhttp.status==200)
             {
+                alert(xhttp.responseText);
                 document.getElementById("desList").innerHTML= xhttp.responseText;
             }
         }
