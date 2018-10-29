@@ -1,23 +1,21 @@
 <?php
     $src = $_POST["src"];
     $sql_query_dest = "select DISTINCT dest as dest from traceroute where src = '" . $src . "';";
-     include 'dtb.php';
+    include 'dtb.php';
     
     
-    $list_four = $dbh->query($sql_query_dest);
+    $list = $dbh->query($sql_query_dest);
     #if(pg_num_rows($list_four) == 0) {
     #   echo "<option value = \"No destinations found for this given source\"></option>";
     #}
     
-    echo "<option value = \"" . pg_num_rows($list_four) . "\"></option>";
+    // echo "<option value = \"" . pg_num_rows($list_four) . "\"></option>";
     
-    // while($row_list_dest = $list_four->fetch(PDO::FETCH_ASSOC)):
-    //     $dest = $row_list_dest["dest"];
-    
-    
-    //     $option = "<option value = \"" . $dest . "\"></option>";
-    // echo $option;
-    // endwhile;
+    while($row_list_dest = $list->fetch(PDO::FETCH_ASSOC)):
+        $dest = $row_list_dest["dest"];
+        $option = "<option value = \"" . $dest . "\"></option>";
+        echo $option;
+    endwhile;
    
 ?>
 
