@@ -373,7 +373,7 @@ function limitDes(str) {
         }
         
         xhttp.send(parameter);
-        if(document.getElementById("desList").innerHTML) {
+        if(document.getElementById("desList").innerHTML != "") {
            alert("both box filled!");
             //default_time();
         }
@@ -410,7 +410,7 @@ function limitSrc(str) {
         }
         
         xhttp.send(parameter);
-        if(document.getElementById("srcList").innerHTML) {
+        if(document.getElementById("srcList").innerHTML != "") {
             alert("both box filled!");
             //default_time();
             //default_time();
