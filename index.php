@@ -374,7 +374,7 @@ function limitDes(str) {
         
         xhttp.send(parameter);
         if(document.getElementById("browser2").value != '') {
-          
+            default_time();
         }
         // var other_box = document.getElementById("box2").value;
     
@@ -411,7 +411,7 @@ function limitSrc(str) {
         xhttp.send(parameter);
         
         if(document.getElementById("browser1").value != '') {
-          
+            default_time();
         }
         // var other_box = document.getElementById("box2").value;
     
