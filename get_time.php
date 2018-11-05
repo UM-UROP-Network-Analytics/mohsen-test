@@ -14,8 +14,9 @@
 
 
         endwhile;
-        echo $mintime;
-        echo $maxtime;
+
+        echo date(Y-m-d h:i:s, strtotime($mintime));
+        echo date(Y-m-d h:i:s, strtotime($maxtime));
     }
 
 
