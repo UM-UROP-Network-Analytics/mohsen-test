@@ -12,7 +12,7 @@
     // echo "<option value = \"" . pg_num_rows($list_four) . "\"></option>";
     
     while($row_list_dest = $list->fetch(PDO::FETCH_ASSOC)):
-        $dest = $row_list_dest["src"];
+        $src = $row_list_dest["src"];
         $sql_query_name = "select distinct sitename as sitename from serverlookup where ipv4 = '" . $src . "' or ipv6 = '" . $src . "';";
         $name = $dbh->query($sql_query_name);
         $row_list_name = $name->fetch(PDO::FETCH_ASSOC);
