@@ -373,7 +373,9 @@ function limitDes(str) {
         }
         
         xhttp.send(parameter);
-        
+        if(document.getElementById("browser1").value === '') {
+          alert("helloe");
+        }
         // var other_box = document.getElementById("box2").value;
     
     // if(other_box) {
@@ -408,7 +410,7 @@ function limitSrc(str) {
         
         xhttp.send(parameter);
         
-        if(document.getElementById("browser1").value === '') {
+        if(document.getElementById("browser2").value === '') {
           alert("helloe");
         }
         // var other_box = document.getElementById("box2").value;
