@@ -425,6 +425,7 @@ function reset() {
     document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
     document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
     populateZone();
+    alert("Everything is reset!");
 }
 </script>
 
