@@ -420,8 +420,8 @@ function reset() {
     document.getElementById("browser1").value = "";
     document.getElementById("browser2").value = "";
     var zones ='';
-    document.getElementById("desList").value = zones;
-    document.getElementById("srcList").value = zones;
+    document.getElementById("desList").innerHTML = zones;
+    document.getElementById("srcList").innerHTML = zones;
     document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
     document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
     populateZone();
