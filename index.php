@@ -423,7 +423,9 @@ function limitSrc(str) {
 
 function default_time() {
     var src = document.getElementById("browser1").value;
-    var dest = document.getElementById("browser2").value;   
+    var dest = document.getElementById("browser2").value;
+        alert(src);
+        alert(dest);   
         var xhttp;
         var parameter = "src=" + src + "&dest=" + dest;
         
