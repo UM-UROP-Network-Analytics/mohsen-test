@@ -416,10 +416,7 @@ function limitSrc(str) {
     
 }
 
-function reset() {
-    
-    alert("Everything is reset!");
-}
+
 </script>
 
 </body>
