@@ -439,6 +439,7 @@ function default_time() {
             if (xhttp.readyState==4 && xhttp.status==200)
             {
                 var response = xhttp.responseText;
+                alert(response);
                 response = response.slice(0,-3);
                 var ip1 = response.substr(response.length - 16);
                 var ip2 = response.slice(0,-19);
