@@ -373,7 +373,7 @@ function limitDes(str) {
         }
         
         xhttp.send(parameter);
-        if(document.getElementById("browser1").innerHTML != "") {
+        if(document.getElementById("browser2").innerHTML != "") {
            alert("both box filled!");
             //default_time();
         }
