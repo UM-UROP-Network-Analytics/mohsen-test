@@ -124,9 +124,9 @@ body {font-size:16px;}
             </datalist>
           </td>
           <td>
-            <input list="desList" name="src" id ="browser2">
+            <input list="desList" name="src" id ="browser2" onchange="limitSrc(this.value)">
             <datalist id="desList">
-            </datalist>
+            </datalist>f
           </td>
           <td>
             <input id="startTime" name="startTime" type="datetime-local" min="2017-12-01T01:00">
@@ -373,6 +373,45 @@ function limitDes(str) {
         }
         
         xhttp.send(parameter);
+        if(other_box) {
+            default_time();
+        }
+        // var other_box = document.getElementById("box2").value;
+    
+    // if(other_box) {
+    //     default_time();
+    // }
+    
+}
+
+function limitSrc(str) {
+    
+        var xhttp;
+        var parameter = "des=" + str;
+        //alert(parameter); //To delete
+
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/limitSrc.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange=function()
+        {
+            if (xhttp.readyState==4 && xhttp.status==200)
+            {
+                document.getElementById("srcList").innerHTML= xhttp.responseText;
+            }
+        }
+        
+        xhttp.send(parameter);
+        if(other_box) {
+            default_time();
+        }
         // var other_box = document.getElementById("box2").value;
     
     // if(other_box) {
