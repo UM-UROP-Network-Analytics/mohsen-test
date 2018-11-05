@@ -442,6 +442,8 @@ function default_time() {
                 response = response.slice(0,-3);
                 var ip1 = response.substr(response.length - 16);
                 var ip2 = response.slice(0,-19);
+                alert(ip1);
+                alert(ip2);
                 document.getElementById("startTime").defaultValue = ip2;
                 document.getElementById("endTime").defaultValue = ip1;
                 if (!response) {
