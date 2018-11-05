@@ -126,7 +126,7 @@ body {font-size:16px;}
           <td>
             <input list="desList" name="src" id ="browser2" onchange="limitSrc(this.value)">
             <datalist id="desList">
-            </datalist>f
+            </datalist>
           </td>
           <td>
             <input id="startTime" name="startTime" type="datetime-local" min="2017-12-01T01:00">
@@ -374,7 +374,8 @@ function limitDes(str) {
         
         xhttp.send(parameter);
         if(other_box) {
-            default_time();
+           alert("both box filled!");
+            //default_time();
         }
         // var other_box = document.getElementById("box2").value;
     
@@ -410,7 +411,9 @@ function limitSrc(str) {
         
         xhttp.send(parameter);
         if(other_box) {
-            default_time();
+            alert("both box filled!");
+            //default_time();
+            //default_time();
         }
         // var other_box = document.getElementById("box2").value;
     
