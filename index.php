@@ -374,7 +374,7 @@ function limitDes(str) {
         
         xhttp.send(parameter);
         if(document.getElementById("browser2").value != '') {
-          alert("helloe");
+          
         }
         // var other_box = document.getElementById("box2").value;
     
@@ -411,13 +411,50 @@ function limitSrc(str) {
         xhttp.send(parameter);
         
         if(document.getElementById("browser1").value != '') {
-          alert("helloe");
+          
         }
         // var other_box = document.getElementById("box2").value;
     
     // if(other_box) {
     //     default_time();
     // }
+    
+}
+
+function default_time() {
+    var src = document.getElementById("browser1").value;
+    var dest = document.getElementById("browser2").value;   
+        var xhttp;
+        var parameter = "src=" + src + "&dest=" + dest;
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xhttp=new XMLHttpRequest();
+        } else {// code for IE6, IE5
+            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/get_time.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange=function()
+        {
+            if (xhttp.readyState==4 && xhttp.status==200)
+            {
+                var response = xhttp.responseText;
+                response = response.slice(0,-3);
+                var ip1 = response.substr(response.length - 16);
+                var ip2 = response.slice(0,-19);
+                document.getElementById("start").defaultValue = ip2;
+                document.getElementById("end").defaultValue = ip1;
+                if (!response) {
+                    document.getElementById("start").defaultValue = "0000-00-00T00:00";
+                    document.getElementById("end").defaultValue = "0000-00-00T00:00";
+                }
+            }
+        }
+        
+        
+        xhttp.send(parameter);
+        
+    
     
 }
 
