@@ -417,14 +417,11 @@ function limitSrc(str) {
 }
 
 function reset() {
-    document.getElementById("browser1").value = "";
-    document.getElementById("browser2").value = "";
-    var zones ='';
-    document.getElementById("desList").innerHTML = zones;
-    document.getElementById("srcList").innerHTML = zones;
-    document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
-    document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
-    populateZone();
+    // document.getElementById("browser1").value = "";
+    // document.getElementById("browser2").value = "";
+    // document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
+    // document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
+    // populateZone();
     alert("Everything is reset!");
 }
 </script>
