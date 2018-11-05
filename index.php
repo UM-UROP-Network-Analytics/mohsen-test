@@ -426,6 +426,8 @@ function limitSrc(str) {
 function reset() {
     document.getElementById("browser1").value = "";
     document.getElementById("browser2").value = "";
+    document.getElementById("desList").value = "";
+    document.getElementById("srcList").value = "";
     document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
     document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
     populateZone();
