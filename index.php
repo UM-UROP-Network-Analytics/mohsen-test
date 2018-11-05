@@ -303,6 +303,8 @@ function updateClock() {
 }
 // Function to populate src zones and des zones when the webpage loads
 function populateZone() {
+  document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
+  document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
   var zones ='';
     <?php
       $host        = "psdb.aglt2.org";
