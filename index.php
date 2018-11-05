@@ -443,6 +443,8 @@ function default_time() {
                 response = response.slice(0,-3);
                 var ip1 = response.substr(response.length - 19);
                 var ip2 = response.slice(0,-22);
+                ip1 = ip1.replace(/ /g,"T");
+                ip2 = ip2.replace(/ /g,"T");
                 alert(ip1);
                 alert(ip2);
                 document.getElementById("startTime").defaultValue = ip2;
