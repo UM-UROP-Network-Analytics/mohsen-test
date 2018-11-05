@@ -373,10 +373,7 @@ function limitDes(str) {
         }
         
         xhttp.send(parameter);
-        if(document.getElementById("browser2").innerHTML != "") {
-           alert("both box filled!");
-            //default_time();
-        }
+        
         // var other_box = document.getElementById("box2").value;
     
     // if(other_box) {
@@ -410,11 +407,7 @@ function limitSrc(str) {
         }
         
         xhttp.send(parameter);
-        if(document.getElementById("browser2").innerHTML != "") {
-            alert("both box filled!");
-            //default_time();
-            //default_time();
-        }
+        
         // var other_box = document.getElementById("box2").value;
     
     // if(other_box) {
@@ -426,8 +419,9 @@ function limitSrc(str) {
 function reset() {
     document.getElementById("browser1").value = "";
     document.getElementById("browser2").value = "";
-    document.getElementById("desList").value = "";
-    document.getElementById("srcList").value = "";
+    var zones ='';
+    document.getElementById("desList").value = zones;
+    document.getElementById("srcList").value = zones;
     document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
     document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
     populateZone();
