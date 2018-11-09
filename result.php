@@ -70,6 +70,22 @@ body {font-size:16px;}
     $end_time = $_POST["endTime"];
     $epoch_start = strtotime($start_time);
     $epoch_end = strtotime($end_time);
+    include 'dtb.php';
+   	$sql_query_name = "select distinct sitename as sitename from serverlookup where ipv4 = '" . $src . "' or ipv6 = '" . $src . "';";
+    $srcname = $dbh->query($sql_query_name);
+    $row_list_name = $srcname->fetch(PDO::FETCH_ASSOC);
+    $Srcname = $row_list_name["sitename"];
+    if(strlen($Srcname) == 0 ) {
+    	$Srcname = 'Sitename mising';
+    }
+
+    $sql_query_name = "select distinct sitename as sitename from serverlookup where ipv4 = '" . $des . "' or ipv6 = '" . $des . "';";
+    $desname = $dbh->query($sql_query_name);
+    $row_list_name = $desname->fetch(PDO::FETCH_ASSOC);
+    $Desname = $row_list_name["sitename"];
+    if(strlen($Srcname) == 0 ) {
+    	$Desname = 'Sitename mising';
+    }
     ?>
 
 
@@ -94,6 +110,8 @@ body {font-size:16px;}
     <p> 
     	Source: <?php echo $src; ?><br>
     	Destination: <?php echo $des; ?><br><br>
+    	Source site name: <?php echo $Srcname; ?><br>
+    	Destination site name: <?php echo $Desname; ?><br><br>
     	Start time: <?php echo $_POST["startTime"]; ?><br>
     	(epoch:<?php echo strtotime($_POST["startTime"]); ?>)<br>
     	End time: <?php echo $_POST["endTime"]; ?><br>
