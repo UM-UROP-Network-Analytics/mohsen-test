@@ -128,26 +128,28 @@ body {font-size:16px;}
     <table class="w3-table-all w3-hoverable">
     <thead>
       <tr class="w3-light-grey">
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Points</th>
+        <th>Source</th>
+		<th>Destination</th>
+		<th>Route Number</th>
+		<th>Count</th>
+		<th>Hops</th>
       </tr>
      </thead>
-    <tr>
-      <td>Jill</td>
-      <td>Smith</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>Eve</td>
-      <td>Jackson</td>
-      <td>94</td>
-    </tr>
-    <tr>
-      <td>Adam</td>
-      <td>Johnson</td>
-      <td>67</td>
-    </tr>
+     <tbody>
+     	<?php 
+     		$sql_query_stmt = "select src,dest,rtnum, cnt, hops from traceroute where src='" . $src . "' and dest='" . $des . "' order by rtnum;";
+    		$stmt = $dbh->query($sql_query_stmt);
+    	?>
+    	<?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+		<tr>
+		<td><?php echo htmlspecialchars($row['src']); ?></td>
+		<td><?php echo htmlspecialchars($row['dest']); ?></td>
+		<td><?php echo htmlspecialchars($row['rtnum']); ?></td>
+		<td><?php echo htmlspecialchars($row['cnt']); ?></td>
+		<td><?php echo htmlspecialchars($row['hops']); ?></td>
+		</tr>
+		<?php endwhile; ?>
+	</tbody>
   	</table>
     
   </div>
