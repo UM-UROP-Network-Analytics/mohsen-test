@@ -94,8 +94,10 @@ body {font-size:16px;}
     <p> 
     	Source: <?php echo $src; ?><br>
     	Destination: <?php echo $des; ?><br>
-    	Start time: <?php echo $_POST["startTime"]; ?>(epoch:<?php echo strtotime($_POST["startTime"]); ?>)<br>
-    	End time: <?php echo $_POST["endTime"]; ?>(epoch:<?php echo strtotime($_POST["endTime"]); ?>)<br>
+    	Start time: <?php echo $_POST["startTime"]; ?><br>
+    	(epoch:<?php echo strtotime($_POST["startTime"]); ?>)<br>
+    	End time: <?php echo $_POST["endTime"]; ?><br>
+    	(epoch:<?php echo strtotime($_POST["endTime"]); ?>)<br>
     	
     </p>
     
