@@ -126,7 +126,7 @@ body {font-size:16px;}
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Summary.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
     <div class="w3-responsive">
-    <table class="w3-table-all w3-hoverable w3-small ">
+    <table class="w3-table-all w3-hoverable">
     <thead>
       <tr class="w3-light-grey">
         <th>Source</th>
