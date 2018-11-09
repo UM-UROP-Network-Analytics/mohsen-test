@@ -62,6 +62,17 @@ body {font-size:16px;}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
+	<!-- php module to get input from previous page -->
+<?php
+    $src = $_POST["src"];
+    $des = $_POST["des"];
+    $start_time = $_POST["start_time"];
+    $end_time = $_POST["end_time"];
+    $epoch_start = strtotime($start_time);
+    $epoch_end = strtotime($end_time);
+    ?>
+
+
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="introduction">
     <h1 class="w3-xxxlarge">
@@ -76,43 +87,19 @@ body {font-size:16px;}
     </p>
   </div>
 
+  <!-- Input Summary -->
   <div class="w3-container" id="input" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Your Input Summary:</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
-    <p>Coming up soon!</p>
+    <p> 
+    	Source: <?php echo $src; ?><br>
+    	Destination: <?php echo $des; ?><br>
+    	Start time: <?php echo $_POST["start_time"]; ?>(epoch:<?php echo strtotime($_POST["start_time"]); ?>)<br>
+    	End time: <?php echo $_POST["end_time"]; ?>(epoch:<?php echo strtotime($_POST["end_time"]); ?>)<br>
+    	
+    </p>
     
   </div>
-
-
-  
-  <!-- Photo grid (modal) -->
-  <!--
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-      <img src="/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
-    </div>
-
-    <div class="w3-half">
-      <img src="/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-      <img src="/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
-    </div>
-  </div>
-  -->
-
-  <!-- Modal for full size images on click-->
-  <!--
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
-  -->
-
 
   <!-- Packetloss -->
   <div class="w3-container" id="packetloss" style="margin-top:75px">
