@@ -125,7 +125,7 @@ body {font-size:16px;}
   <div class="w3-container" id="tracerouteSum" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Summary.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to limit..." title="Type in a data">
+    <input class="w3-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to limit..." title="Type in a data">
     <div class="w3-responsive">
     <table id="myTable" class="w3-table-all w3-hoverable w3-small ">
     <thead>
@@ -137,21 +137,19 @@ body {font-size:16px;}
 		<th>Hops</th>
       </tr>
      </thead>
-     <tbody>
      	<?php 
      		$sql_query_stmt = "select src,dest,rtnum, cnt, hops from traceroute where src='" . $src . "' and dest='" . $des . "' order by rtnum;";
     		$stmt = $dbh->query($sql_query_stmt);
     	?>
     	<?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
 		<tr>
-		<td><?php echo htmlspecialchars($row['src']); ?></td>
-		<td><?php echo htmlspecialchars($row['dest']); ?></td>
-		<td><?php echo htmlspecialchars($row['rtnum']); ?></td>
-		<td><?php echo htmlspecialchars($row['cnt']); ?></td>
-		<td><?php echo htmlspecialchars($row['hops']); ?></td>
+			<td><?php echo htmlspecialchars($row['src']); ?></td>
+			<td><?php echo htmlspecialchars($row['dest']); ?></td>
+			<td><?php echo htmlspecialchars($row['rtnum']); ?></td>
+			<td><?php echo htmlspecialchars($row['cnt']); ?></td>
+			<td><?php echo htmlspecialchars($row['hops']); ?></td>
 		</tr>
 		<?php endwhile; ?>
-	</tbody>
   	</table>
     </div>
   </div>
