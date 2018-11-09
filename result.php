@@ -93,7 +93,7 @@ body {font-size:16px;}
     <hr style="width:50px;border:5px solid grey" class="w3-round">
     <p> 
     	Source: <?php echo $src; ?><br>
-    	Destination: <?php echo $des; ?><br>
+    	Destination: <?php echo $des; ?><br><br>
     	Start time: <?php echo $_POST["startTime"]; ?><br>
     	(epoch:<?php echo strtotime($_POST["startTime"]); ?>)<br>
     	End time: <?php echo $_POST["endTime"]; ?><br>
