@@ -29,7 +29,7 @@ body {font-size:16px;}
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
     <a href="#introduction" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Introduction</a> 
     <a href="#input" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Input Summary</a>
-    <a href="#packetloss" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packet Loss Query</a> 
+    <a href="#tracerouteSum" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packet Loss Query</a> 
     <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a> 
     <!-- <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> -->
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
@@ -121,9 +121,9 @@ body {font-size:16px;}
     
   </div>
 
-  <!-- Packetloss -->
-  <div class="w3-container" id="packetloss" style="margin-top:75px">
-    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Packet loss Query.</b></h1>
+  <!-- tracerouteSummary -->
+  <div class="w3-container" id="tracerouteSum" style="margin-top:75px">
+    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Summary.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
     <p>Coming up soon!</p>
     
