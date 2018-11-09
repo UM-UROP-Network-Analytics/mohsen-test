@@ -125,7 +125,30 @@ body {font-size:16px;}
   <div class="w3-container" id="tracerouteSum" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Summary.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
-    <p>Coming up soon!</p>
+    <table class="w3-table-all w3-hoverable">
+    <thead>
+      <tr class="w3-light-grey">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Points</th>
+      </tr>
+     </thead>
+    <tr>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>Adam</td>
+      <td>Johnson</td>
+      <td>67</td>
+    </tr>
+  	</table>
     
   </div>
   
