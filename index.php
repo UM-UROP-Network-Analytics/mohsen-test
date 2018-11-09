@@ -110,6 +110,7 @@ body {font-size:16px;}
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Query.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
     <form action=result.php method="post">
+      <div class="w3-responsive">
       <table class="w3-table w3-centered">
         <tr>
           <th>Source</th>
@@ -147,6 +148,7 @@ body {font-size:16px;}
           </td>
         </tr>
       </table>
+      </div>
 
   </div>
 
