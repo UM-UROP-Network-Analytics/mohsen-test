@@ -125,8 +125,8 @@ body {font-size:16px;}
   <div class="w3-container" id="tracerouteSum" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Summary.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to limit..." title="Type in a data">
     <div class="w3-responsive">
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to add limitations..." title="Type in a data">
     <table id="myTable" class="w3-table-all w3-hoverable w3-small ">
     <thead>
       <tr class="w3-light-grey">
