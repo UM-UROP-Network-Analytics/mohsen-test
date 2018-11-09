@@ -124,15 +124,15 @@ body {font-size:16px;}
             </datalist>
           </td>
           <td>
-            <input list="desList" name="src" id ="browser2" onchange="limitSrc(this.value)">
+            <input list="desList" name="des" id ="browser2" onchange="limitSrc(this.value)">
             <datalist id="desList">
             </datalist>
           </td>
           <td>
-            <input id="startTime" name="startTime" type="datetime-local" min="2017-12-01T01:00">
+            <input id="startTime" name="startTime" type="datetime-local">
           </td>
           <td>
-            <input id="endTime" name="endTime" type="datetime-local" min="2017-12-01T01:00">
+            <input id="endTime" name="endTime" type="datetime-local">
             <datalist id="srcList">
             </datalist>
           </td>

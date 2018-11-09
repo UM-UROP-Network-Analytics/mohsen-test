@@ -66,8 +66,8 @@ body {font-size:16px;}
 <?php
     $src = $_POST["src"];
     $des = $_POST["des"];
-    $start_time = $_POST["start_time"];
-    $end_time = $_POST["end_time"];
+    $start_time = $_POST["startTime"];
+    $end_time = $_POST["endTime"];
     $epoch_start = strtotime($start_time);
     $epoch_end = strtotime($end_time);
     ?>
@@ -94,8 +94,8 @@ body {font-size:16px;}
     <p> 
     	Source: <?php echo $src; ?><br>
     	Destination: <?php echo $des; ?><br>
-    	Start time: <?php echo $_POST["start_time"]; ?>(epoch:<?php echo strtotime($_POST["start_time"]); ?>)<br>
-    	End time: <?php echo $_POST["end_time"]; ?>(epoch:<?php echo strtotime($_POST["end_time"]); ?>)<br>
+    	Start time: <?php echo $_POST["startTime"]; ?>(epoch:<?php echo strtotime($_POST["startTime"]); ?>)<br>
+    	End time: <?php echo $_POST["endTime"]; ?>(epoch:<?php echo strtotime($_POST["endTime"]); ?>)<br>
     	
     </p>
     
