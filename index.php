@@ -77,6 +77,7 @@ body {font-size:16px;}
     </p>
   </div>
   
+  <!-- optional, will us the following in the future. -->
   <!-- Photo grid (modal) -->
   <!--
   <div class="w3-row-padding">
@@ -205,54 +206,7 @@ body {font-size:16px;}
     </div>
   </div>
 
-  <!-- Packages / Pricing Tables -->
-  <!--
-  <div class="w3-container" id="packages" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Packages.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Some text our prices. Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
-  </div>
-
-  <div class="w3-row-padding">
-    <div class="w3-half w3-margin-bottom">
-      <ul class="w3-ul w3-light-grey w3-center">
-        <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-        <li class="w3-padding-16">Floorplanning</li>
-        <li class="w3-padding-16">10 hours support</li>
-        <li class="w3-padding-16">Photography</li>
-        <li class="w3-padding-16">20% furniture discount</li>
-        <li class="w3-padding-16">Good deals</li>
-        <li class="w3-padding-16">
-          <h2>$ 199</h2>
-          <span class="w3-opacity">per room</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-        
-    <div class="w3-half">
-      <ul class="w3-ul w3-light-grey w3-center">
-        <li class="w3-red w3-xlarge w3-padding-32">Pro</li>
-        <li class="w3-padding-16">Floorplanning</li>
-        <li class="w3-padding-16">50 hours support</li>
-        <li class="w3-padding-16">Photography</li>
-        <li class="w3-padding-16">50% furniture discount</li>
-        <li class="w3-padding-16">GREAT deals</li>
-        <li class="w3-padding-16">
-          <h2>$ 249</h2>
-          <span class="w3-opacity">per room</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-red w3-padding-large w3-hover-black">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-  -->
-  
-  
+    <!-- Contact me -->
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Contact.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
@@ -308,6 +262,7 @@ function populateZone() {
   document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
   document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
   var zones ='';
+    //The following php module is used to connect to the database
     <?php
       $host        = "psdb.aglt2.org";
       #$host        = "localhost";
@@ -320,6 +275,8 @@ function populateZone() {
       $sql_query_two="select domain||'(ipv6)' as domain, ipv6 as ipv6 from serverlookup where ipv6 is not null and bandwidth is true;";
       $list = $dbh1->query($sql_query_one) or die('error');
       $list_two = $dbh1->query($sql_query_two) or die('error');
+
+      //The following part recursively create options to show up in the box
       while($row_list = $list->fetch(PDO::FETCH_ASSOC)):
     ?>
         
@@ -352,12 +309,11 @@ function populateZone() {
 
 }
 
+//This function is used to limit the destination when a source is selected
 function limitDes(str) {
     
         var xhttp;
         var parameter = "src=" + str;
-        //alert(parameter); //To delete
-
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
             xhttp=new XMLHttpRequest();
@@ -380,14 +336,9 @@ function limitDes(str) {
         if(document.getElementById("browser2").value != '') {
             default_time();
         }
-        // var other_box = document.getElementById("box2").value;
-    
-    // if(other_box) {
-    //     default_time();
-    // }
-    
 }
 
+//This function is used ot limit the field of source when a destination is selected
 function limitSrc(str) {
     
         var xhttp;
@@ -417,14 +368,10 @@ function limitSrc(str) {
         if(document.getElementById("browser1").value != '') {
             default_time();
         }
-        // var other_box = document.getElementById("box2").value;
-    
-    // if(other_box) {
-    //     default_time();
-    // }
     
 }
 
+//When a source and destination is selected, the time zones will be popultated based on the inputs
 function default_time() {
     var src = document.getElementById("browser1").value;
     var dest = document.getElementById("browser2").value;   
