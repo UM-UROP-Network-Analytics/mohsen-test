@@ -154,7 +154,7 @@ body {font-size:16px;}
 			<td><?php echo htmlspecialchars($row['hops']); ?></td>
 		</tr>
         <?php ++$counter ?>
-        <?php $total_count += cnt?>
+        <?php $total_count += $cnt?>
 		<?php endwhile; ?>
   	</table>
     </div>
