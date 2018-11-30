@@ -172,7 +172,7 @@ body {font-size:16px;}
   	</table>
     </div>
   </div>
-  <p> There were a total of <?php echo $counter; ?> routes detected, with the total count being <?php echo $total_count; ?> </p> <br>
+  
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Designers.</b></h1>
