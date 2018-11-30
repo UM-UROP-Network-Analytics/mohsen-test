@@ -172,6 +172,8 @@ body {font-size:17px;}
     <input type="button" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" value="Start over" />
   </div>
 
+    <button type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" id = "button3" class="w3-button w3-black">Start Over</button>
+
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Designers.</b></h1>
