@@ -124,7 +124,20 @@ body {font-size:16px;}
   <!-- tracerouteSummary -->
   <div class="w3-container" id="tracerouteSum" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Summary.</b></h1>
-    <p> From source <?php echo $src; ?> to destination <?php echo $des; ?>, there were a total of ___ routes <br>  </p>
+
+      <?php 
+        $sql_query_stmt = "select src,dest,rtnum, cnt, hops from traceroute where src='" . $src . "' and dest='" . $des . "' order by rtnum;";
+        $stmt = $dbh->query($sql_query_stmt);
+      ?>
+      <?php $counter = 0?>
+      <?php $total_count = 0?>
+      <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+          <?php ++$counter; ?>
+        <?php $total_count += htmlspecialchars($row['cnt']);?>
+        <?php endwhile; ?>
+
+
+    <p> From source <?php echo $src; ?> to destination <?php echo $des; ?>, there were <?php echo $counter ;?> routes, with a total of <?php echo $total_count ?> possible connections<br>  </p>
 
     <hr style="width:50px;border:5px solid grey" class="w3-round">
     <input class="w3-input w3-border"  type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to limit..." title="Type in a data">
@@ -209,7 +222,7 @@ body {font-size:16px;}
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Contact.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
-      <p>Do you have any advice or questions? We always love to improve our product!</p>
+      <p>Do you have any comments or questions? We would love to hear from you!</p>
     <form action="/action_page.php" target="_blank">
       <div class="w3-section">
         <label>Name</label>
