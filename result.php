@@ -144,7 +144,7 @@ body {font-size:16px;}
     		$stmt = $dbh->query($sql_query_stmt);
     	?>
       <?php $counter = 0?>
-      ?php $total_count = 0?>
+      <?php $total_count = 0?>
     	<?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
 		<tr>
 			<td><?php echo htmlspecialchars($row['src']); ?></td>
