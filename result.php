@@ -144,6 +144,7 @@ body {font-size:16px;}
     		$stmt = $dbh->query($sql_query_stmt);
     	?>
       <?php $counter = 0?>
+      ?php $total_count = 0?>
     	<?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
 		<tr>
 			<td><?php echo htmlspecialchars($row['src']); ?></td>
@@ -153,11 +154,12 @@ body {font-size:16px;}
 			<td><?php echo htmlspecialchars($row['hops']); ?></td>
 		</tr>
         <?php ++$counter ?>
+        <?php $total_count += cnt?>
 		<?php endwhile; ?>
   	</table>
     </div>
   </div>
-  <p> There were a total of <?php echo $counter?> routes detected </p> <br>
+  <p> There were a total of <?php echo $counter?> routes detected, with the total count being <?php echo $total_count?> </p> <br>
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Designers.</b></h1>
