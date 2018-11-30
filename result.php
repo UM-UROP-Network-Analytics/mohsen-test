@@ -167,10 +167,9 @@ body {font-size:17px;}
 		</tr>
 		<?php endwhile; ?>
   	</table>
-    </div>
-  </div>
+    <br>
       <div>
-    <button style= "margin: auto; "text-align: center;" type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" id = "button3" class="w3-button w3-black">Start Over</button>
+    <button style= "margin-left: 25px;" "margin-right: 25px;" text-align: center;" type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" id = "button3" class="w3-button w3-black">Start Over</button>
     </div>
 
   <!-- Designers -->
