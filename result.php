@@ -170,7 +170,7 @@ body {font-size:17px;}
     </div>
   </div>
       <div>
-    <button style="text-align: center;" type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" id = "button3" class="w3-button w3-black">Start Over</button>
+    <button style= "margin-left: auto" "margin-right: auto;" "text-align: center;" type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" id = "button3" class="w3-button w3-black">Start Over</button>
     </div>
 
   <!-- Designers -->
