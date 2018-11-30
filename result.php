@@ -168,8 +168,6 @@ body {font-size:17px;}
 		<?php endwhile; ?>
   	</table>
     </div>
-
-    <input type="button" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" value="Start over" />
   </div>
 
     <button type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" id = "button3" class="w3-button w3-black">Start Over</button>
