@@ -99,7 +99,7 @@ body {font-size:16px;}
     </h1>
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Introduction.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
-      <p>Currently, we are testing some most commonely needed queries. More details will be added in the future.</p>
+      <p>Currently, we are testing some most commonly needed queries. More details will be added in the future.</p>
     </p>
   </div>
 
@@ -124,8 +124,7 @@ body {font-size:16px;}
   <!-- tracerouteSummary -->
   <div class="w3-container" id="tracerouteSum" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Traceroute Summary.</b></h1>
-    <p> This is a test paragraph.<br>
-     From source <?php echo $src; ?> to destination <?php echo $des; ?>, there were a total of ___ routes <br>  </p>
+    <p> From source <?php echo $src; ?> to destination <?php echo $des; ?>, there were a total of ___ routes <br>  </p>
 
     <hr style="width:50px;border:5px solid grey" class="w3-round">
     <input class="w3-input w3-border"  type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to limit..." title="Type in a data">
@@ -144,6 +143,7 @@ body {font-size:16px;}
      		$sql_query_stmt = "select src,dest,rtnum, cnt, hops from traceroute where src='" . $src . "' and dest='" . $des . "' order by rtnum;";
     		$stmt = $dbh->query($sql_query_stmt);
     	?>
+      <?php $counter = 0?>
     	<?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
 		<tr>
 			<td><?php echo htmlspecialchars($row['src']); ?></td>
@@ -152,11 +152,12 @@ body {font-size:16px;}
 			<td><?php echo htmlspecialchars($row['cnt']); ?></td>
 			<td><?php echo htmlspecialchars($row['hops']); ?></td>
 		</tr>
+        <?php ++$counter ?>
 		<?php endwhile; ?>
   	</table>
     </div>
   </div>
-  
+  <p> There were a total of <?php $counter routes detected ?> </p> <br>
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Designers.</b></h1>
