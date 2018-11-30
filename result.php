@@ -137,7 +137,7 @@ body {font-size:16px;}
         <?php endwhile; ?>
 
 
-    <p> From source <?php echo $src; ?> to destination <?php echo $des; ?>, there were <?php echo $counter ;?> routes, with a total of <?php echo $total_count ?> possible connections<br>  </p>
+    <p> From source <b> <?php echo $src; ?> </b> to destination <b><?php echo $des; ?></b>, there were <?php echo $counter ;?> routes, with a total of <?php echo $total_count ?> possible connections<br>  </p>
 
     <hr style="width:50px;border:5px solid grey" class="w3-round">
     <input class="w3-input w3-border"  type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to limit..." title="Type in a data">
@@ -172,7 +172,7 @@ body {font-size:16px;}
   	</table>
     </div>
   </div>
-  
+
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Designers.</b></h1>
