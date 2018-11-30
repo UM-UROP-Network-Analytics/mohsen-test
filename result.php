@@ -157,7 +157,7 @@ body {font-size:16px;}
   	</table>
     </div>
   </div>
-  <p> There were a total of <?php $counter routes detected ?> </p> <br>
+  <p> There were a total of <?php $counter?> routes detected </p> <br>
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Designers.</b></h1>
