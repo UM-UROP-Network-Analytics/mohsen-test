@@ -169,8 +169,9 @@ body {font-size:17px;}
   	</table>
     </div>
   </div>
-
-    <button type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" id = "button3" class="w3-button w3-black">Start Over</button>
+      <div>
+    <button style="text-align: center;" type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" id = "button3" class="w3-button w3-black">Start Over</button>
+    </div>
 
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
