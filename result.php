@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Arial", sans-serif}
-body {font-size:18px;}
+body {font-size:17px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
 </style>
@@ -165,11 +165,11 @@ body {font-size:18px;}
 			<td><?php echo htmlspecialchars($row['cnt']); ?></td>
 			<td><?php echo htmlspecialchars($row['hops']); ?></td>
 		</tr>
-        <?php ++$counter; ?>
-        <?php $total_count += htmlspecialchars($row['cnt']);?>
 		<?php endwhile; ?>
   	</table>
     </div>
+
+    <input type="button" onclick="location.href='http://psdb.aglt2.org/mohsen-test/';" value="Start over" />
   </div>
 
   <!-- Designers -->
