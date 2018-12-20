@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <link rel="stylesheet" type = "text/css" href="http://psdb.aglt2.org/urop-new/urop/styles/w3.css/"> -->
 <link rel="stylesheet" type = "text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Arial", sans-serif}
