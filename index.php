@@ -62,6 +62,13 @@ body {font-size:16px;}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
+
+  <div class="jumbotron">
+  <h1>perfSONAR Analytics Summarization Tool</h1>
+  <p>This tool gives an easier visualization of the data you are interested in.</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Get started</a></p>
+</div>
+
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="introduction">
     <h1 class="w3-xxxlarge">
