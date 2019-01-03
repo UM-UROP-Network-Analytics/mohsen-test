@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <link rel="stylesheet" type = "text/css" href="http://psdb.aglt2.org/urop-new/urop/styles/w3.css/"> -->
 <link rel="stylesheet" type = "text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" type="text/css" href="bootstrap.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Arial", sans-serif}
@@ -63,13 +62,6 @@ body {font-size:16px;}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
-  <div class="jumbotron">
-  <h1>perfSONAR Analytics Summarization Tool</h1>
-  <p>This tool gives an easier visualization of the data you are interested in.</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Get started</a></p>
-</div>
-
-
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="introduction">
     <h1 class="w3-xxxlarge">
@@ -94,7 +86,6 @@ body {font-size:16px;}
       <img src="/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
       <img src="/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
     </div>
-
     <div class="w3-half">
       <img src="/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
       <img src="/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
@@ -253,7 +244,6 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
-
 // Modal Image Gallery
 function onClick(element) {
   document.getElementById("img01").src = element.src;
@@ -283,7 +273,6 @@ function populateZone() {
       $sql_query_two="select domain||'(ipv6)' as domain, ipv6 as ipv6 from serverlookup where ipv6 is not null and bandwidth is true;";
       $list = $dbh1->query($sql_query_one) or die('error');
       $list_two = $dbh1->query($sql_query_two) or die('error');
-
       //The following part recursively create options to show up in the box
       while($row_list = $list->fetch(PDO::FETCH_ASSOC)):
     ?>
@@ -293,7 +282,6 @@ function populateZone() {
       zones += "\">"
       zones += "<?php echo $row_list["domain"]; ?>";
       zones += "</option>";
-
     <?php
       endwhile;
     ?>
@@ -306,7 +294,6 @@ function populateZone() {
       zones += "\">"
       zones += "<?php echo $row_list_two["domain"]; ?>";
       zones += "</option>";
-
     <?php
       endwhile;
       pg_close($dbh1);
@@ -314,9 +301,7 @@ function populateZone() {
     
     document.getElementById("srcList").innerHTML = zones;
     document.getElementById("desList").innerHTML = zones;
-
 }
-
 //This function is used to limit the destination when a source is selected
 function limitDes(str) {
     
@@ -345,14 +330,12 @@ function limitDes(str) {
             default_time();
         }
 }
-
 //This function is used ot limit the field of source when a destination is selected
 function limitSrc(str) {
     
         var xhttp;
         var parameter = "des=" + str;
         //alert(parameter); //To delete
-
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
             xhttp=new XMLHttpRequest();
@@ -378,7 +361,6 @@ function limitSrc(str) {
         }
     
 }
-
 //When a source and destination is selected, the time zones will be popultated based on the inputs
 function default_time() {
     var src = document.getElementById("browser1").value;
@@ -418,7 +400,6 @@ function default_time() {
     
     
 }
-
 </script>
 
 </body>
