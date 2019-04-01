@@ -157,6 +157,46 @@ body {font-size:16px;}
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Packet loss Query.</b></h1>
     <hr style="width:50px;border:5px solid grey" class="w3-round">
     <p>Coming up soon!</p>
+
+    <form action=result.php method="post">
+      <div class="w3-responsive">
+      <table class="w3-table w3-centered">
+        <tr>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+        </tr>
+        <tr>
+          <td>
+            <input list="srcList" name="src" id ="browser1" onchange="limitDes(this.value)">
+            <datalist id="srcList">
+            </datalist>
+          </td>
+          <td>
+            <input list="desList" name="des" id ="browser2" onchange="limitSrc(this.value)">
+            <datalist id="desList">
+            </datalist>
+          </td>
+          <td>
+            <input id="startTime" name="startTime" type="datetime-local">
+          </td>
+          <td>
+            <input id="endTime" name="endTime" type="datetime-local">
+            <datalist id="srcList">
+            </datalist>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="Query" class="w3-button w3-black">
+          </td>
+    </form>      
+          <td>
+            <button type="reset" onclick="populateZone()" id = "button2" class="w3-button w3-black">Reset</button>
+          </td>
+        </tr>
+      </table>
     
   </div>
   
@@ -330,7 +370,7 @@ function limitDes(str) {
             default_time();
         }
 }
-//This function is used ot limit the field of source when a destination is selected
+//This function is used to limit the field of source when a destination is selected
 function limitSrc(str) {
     
         var xhttp;
