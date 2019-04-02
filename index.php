@@ -387,8 +387,8 @@ function populateZonePack() {
       pg_close($dbh1);
     ?>
     
-    document.getElementById("srcList").innerHTML = zones;
-    document.getElementById("desList").innerHTML = zones;
+    document.getElementById("srcListPack").innerHTML = zones;
+    document.getElementById("desListPack").innerHTML = zones;
 }
 //This function is used to limit the destination when a source is selected
 function limitDes(str) {
@@ -443,7 +443,7 @@ function limitPackDes(str) {
         
         xhttp.send(parameter);
         if(document.getElementById("browser2Pack").value != '') {
-            default_time();
+            pack_default_time();
         }
 }
 //This function is used to limit the field of source when a destination is selected
@@ -504,7 +504,7 @@ function limitPackSrc(str) {
         xhttp.send(parameter);
         
         if(document.getElementById("browser1Pack").value != '') {
-            default_time();
+            pack_default_time();
         }
     
 }
