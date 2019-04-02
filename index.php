@@ -169,21 +169,21 @@ body {font-size:16px;}
         </tr>
         <tr>
           <td>
-            <input list="srcList" name="src" id ="browser1" onchange="limitPackDes(this.value)">
-            <datalist id="srcList">
+            <input list="srcList" name="src" id ="browser1Pack" onchange="limitPackDes(this.value)">
+            <datalist id="srcListPack">
             </datalist>
           </td>
           <td>
-            <input list="desList" name="des" id ="browser2" onchange="limitPackSrc(this.value)">
-            <datalist id="desList">
+            <input list="desList" name="des" id ="browser2Pack" onchange="limitPackSrc(this.value)">
+            <datalist id="desListPack">
             </datalist>
           </td>
           <td>
-            <input id="startTime" name="startTime" type="datetime-local">
+            <input id="startTimePack" name="startTime" type="datetime-local">
           </td>
           <td>
-            <input id="endTime" name="endTime" type="datetime-local">
-            <datalist id="srcList">
+            <input id="endTimePack" name="endTime" type="datetime-local">
+            <datalist id="srcListPack">
             </datalist>
           </td>
         </tr>
@@ -193,7 +193,7 @@ body {font-size:16px;}
           </td>
     </form>      
           <td>
-            <button type="reset" onclick="populateZone()" id = "button2" class="w3-button w3-black">Reset</button>
+            <button type="reset" onclick="populateZonePack()" id = "button2" class="w3-button w3-black">Reset</button>
           </td>
         </tr>
       </table>
@@ -342,6 +342,54 @@ function populateZone() {
     document.getElementById("srcList").innerHTML = zones;
     document.getElementById("desList").innerHTML = zones;
 }
+
+
+function populateZonePack() {
+  document.getElementById("startTimePack").defaultValue = "0000-00-00T00:00";
+  document.getElementById("endTimePack").defaultValue = "0000-00-00T00:00";
+  var zones ='';
+    //The following php module is used to connect to the database
+    <?php
+      $host        = "psdb.aglt2.org";
+      #$host        = "localhost";
+      $port        = "5432";
+      $dbname      = "psdb_urop";
+      $user = "postgres";
+      $password = "xzk3136";
+      $dbh1 = new PDO( "pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
+      $sql_query_one="select domain||'(ipv4)' as domain, ipv4 as ipv4 from serverlookup where ipv4 is not null and bandwidth is true;";
+      $sql_query_two="select domain||'(ipv6)' as domain, ipv6 as ipv6 from serverlookup where ipv6 is not null and bandwidth is true;";
+      $list = $dbh1->query($sql_query_one) or die('error');
+      $list_two = $dbh1->query($sql_query_two) or die('error');
+      //The following part recursively create options to show up in the box
+      while($row_list = $list->fetch(PDO::FETCH_ASSOC)):
+    ?>
+        
+      zones += "<option value=\"";
+      zones += "<?php echo $row_list["ipv4"]; ?>";
+      zones += "\">"
+      zones += "<?php echo $row_list["domain"]; ?>";
+      zones += "</option>";
+    <?php
+      endwhile;
+    ?>
+    
+    <?php
+      while($row_list_two = $list_two->fetch(PDO::FETCH_ASSOC)):
+    ?>
+      zones += "<option value=\"";
+      zones += "<?php echo $row_list_two["ipv6"]; ?>";
+      zones += "\">"
+      zones += "<?php echo $row_list_two["domain"]; ?>";
+      zones += "</option>";
+    <?php
+      endwhile;
+      pg_close($dbh1);
+    ?>
+    
+    document.getElementById("srcList").innerHTML = zones;
+    document.getElementById("desList").innerHTML = zones;
+}
 //This function is used to limit the destination when a source is selected
 function limitDes(str) {
     
@@ -389,12 +437,12 @@ function limitPackDes(str) {
         {
             if (xhttp.readyState==4 && xhttp.status==200)
             {
-                document.getElementById("desList").innerHTML= xhttp.responseText;
+                document.getElementById("desListPack").innerHTML= xhttp.responseText;
             }
         }
         
         xhttp.send(parameter);
-        if(document.getElementById("browser2").value != '') {
+        if(document.getElementById("browser2Pack").value != '') {
             default_time();
         }
 }
@@ -449,13 +497,13 @@ function limitPackSrc(str) {
         {
             if (xhttp.readyState==4 && xhttp.status==200)
             {
-                document.getElementById("srcList").innerHTML= xhttp.responseText;
+                document.getElementById("srcListPack").innerHTML= xhttp.responseText;
             }
         }
         
         xhttp.send(parameter);
         
-        if(document.getElementById("browser1").value != '') {
+        if(document.getElementById("browser1Pack").value != '') {
             default_time();
         }
     
@@ -501,8 +549,8 @@ function default_time() {
 }
 
 function pack_default_time() {
-    var src = document.getElementById("browser1").value;
-    var dest = document.getElementById("browser2").value;   
+    var src = document.getElementById("browser1Pack").value;
+    var dest = document.getElementById("browser2Pack").value;   
         var xhttp;
         var parameter = "src=" + src + "&dest=" + dest;
         
@@ -523,11 +571,11 @@ function pack_default_time() {
                 var ip2 = response.slice(0,-22);
                 ip1 = ip1.replace(/ /g,"T");
                 ip2 = ip2.replace(/ /g,"T");
-                document.getElementById("startTime").defaultValue = ip2;
-                document.getElementById("endTime").defaultValue = ip1;
+                document.getElementById("startTimePack").defaultValue = ip2;
+                document.getElementById("endTimePack").defaultValue = ip1;
                 if (!response) {
-                    document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
-                    document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
+                    document.getElementById("startTimePack").defaultValue = "0000-00-00T00:00";
+                    document.getElementById("endTimePack").defaultValue = "0000-00-00T00:00";
                 }
             }
         }
