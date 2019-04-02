@@ -172,6 +172,65 @@ body {font-size:17px;}
     <button style= "margin-left: 25px;" "margin-right: 25px;" text-align: center;" type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/#traceroute';" id = "button3" class="w3-button w3-black">Start Over</button>
     </div>
 
+
+    <!-- packetlossSummary -->
+  <div class="w3-container" id="tracerouteSum" style="margin-top:75px">
+    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Packetloss Summary.</b></h1>
+
+      <?php 
+        $sql_query_stmt = "select src,dest,loss from rawpacketdata where src='" . $src . "' and dest='" . $des . "';";
+        $stmt = $dbh->query($sql_query_stmt);
+      ?>
+      <?php $counter = 0?>
+      <?php $total_count = 0?>
+      <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+          <?php ++$counter; ?>
+        <?php endwhile; ?>
+
+
+
+        <hr style="width:50px;border:5px solid grey" class="w3-round">
+    <input class="w3-input w3-border"  type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to limit..." title="Type in a data">
+    <div class="w3-responsive">
+    <table id="myTable" class="w3-table-all w3-hoverable w3-small ">
+    <thead>
+      <tr class="w3-light-grey">
+        <th>Source</th>
+    <th>Destination</th>
+    <th>Route Number</th>
+    <th>Count</th>
+    <th>Hops</th>
+      </tr>
+     </thead>
+      <?php 
+        $sql_query_stmt = "select src,dest,loss from rawpacketdata where src='" . $src . "' and dest='" . $des . "';";
+        $stmt = $dbh->query($sql_query_stmt);
+      ?>
+      <?php $counter = 0?>
+      <?php $total_count = 0?>
+      <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+    <tr>
+      <td><?php echo htmlspecialchars($row['src']); ?></td>
+      <td><?php echo htmlspecialchars($row['dest']); ?></td>
+      <td><?php echo htmlspecialchars($row['loss']); ?></td>
+    </tr>
+    <?php endwhile; ?>
+    </table>
+    <br>
+      <div>
+    <button style= "margin-left: 25px;" "margin-right: 25px;" text-align: center;" type="Start Over" onclick="location.href='http://psdb.aglt2.org/mohsen-test/#traceroute';" id = "button3" class="w3-button w3-black">Start Over</button>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Designers.</b></h1>
@@ -216,8 +275,6 @@ body {font-size:17px;}
       </div>
     </div>
   </div>
-
-
 
 
 
