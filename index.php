@@ -169,12 +169,12 @@ body {font-size:16px;}
         </tr>
         <tr>
           <td>
-            <input list="srcList" name="src" id ="browser1" onchange="limitDes(this.value)">
+            <input list="srcList" name="src" id ="browser1" onchange="limitPackDes(this.value)">
             <datalist id="srcList">
             </datalist>
           </td>
           <td>
-            <input list="desList" name="des" id ="browser2" onchange="limitSrc(this.value)">
+            <input list="desList" name="des" id ="browser2" onchange="limitPackSrc(this.value)">
             <datalist id="desList">
             </datalist>
           </td>
@@ -370,6 +370,34 @@ function limitDes(str) {
             default_time();
         }
 }
+
+function limitPackDes(str) {
+    
+        var xhttp;
+        var parameter = "src=" + str;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/limPacketDest.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange=function()
+        {
+            if (xhttp.readyState==4 && xhttp.status==200)
+            {
+                document.getElementById("desList").innerHTML= xhttp.responseText;
+            }
+        }
+        
+        xhttp.send(parameter);
+        if(document.getElementById("browser2").value != '') {
+            default_time();
+        }
+}
 //This function is used to limit the field of source when a destination is selected
 function limitSrc(str) {
     
@@ -401,6 +429,37 @@ function limitSrc(str) {
         }
     
 }
+
+function limitPackSrc(str) {
+    
+        var xhttp;
+        var parameter = "des=" + str;
+        //alert(parameter); //To delete
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/limPacketSrc.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange=function()
+        {
+            if (xhttp.readyState==4 && xhttp.status==200)
+            {
+                document.getElementById("srcList").innerHTML= xhttp.responseText;
+            }
+        }
+        
+        xhttp.send(parameter);
+        
+        if(document.getElementById("browser1").value != '') {
+            default_time();
+        }
+    
+}
 //When a source and destination is selected, the time zones will be popultated based on the inputs
 function default_time() {
     var src = document.getElementById("browser1").value;
@@ -414,6 +473,45 @@ function default_time() {
             xhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
         xhttp.open("POST", "http://psdb.aglt2.org/web-interface/get_time.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange=function()
+        {
+            if (xhttp.readyState==4 && xhttp.status==200)
+            {
+                var response = xhttp.responseText;
+                response = response.slice(0,-3);
+                var ip1 = response.substr(response.length - 19);
+                var ip2 = response.slice(0,-22);
+                ip1 = ip1.replace(/ /g,"T");
+                ip2 = ip2.replace(/ /g,"T");
+                document.getElementById("startTime").defaultValue = ip2;
+                document.getElementById("endTime").defaultValue = ip1;
+                if (!response) {
+                    document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
+                    document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
+                }
+            }
+        }
+        
+        
+        xhttp.send(parameter);
+        
+    
+    
+}
+
+function pack_default_time() {
+    var src = document.getElementById("browser1").value;
+    var dest = document.getElementById("browser2").value;   
+        var xhttp;
+        var parameter = "src=" + src + "&dest=" + dest;
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xhttp=new XMLHttpRequest();
+        } else {// code for IE6, IE5
+            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/get_packet_time.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange=function()
         {
