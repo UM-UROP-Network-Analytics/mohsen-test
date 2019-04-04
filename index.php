@@ -561,7 +561,7 @@ function pack_default_time() {
         } else {// code for IE6, IE5
             xhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/get_packet_time.php", true);
+        xhttp.open("POST", "http://psdb.aglt2.org/mohsen-test/get_packet_time.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange=function()
         {
