@@ -357,8 +357,8 @@ function populateZonePack() {
       $user = "postgres";
       $password = "xzk3136";
       $dbh1 = new PDO( "pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
-      $sql_query_one="select domain||'(ipv4)' as domain, ipv4 as ipv4 from serverlookup where ipv4 is not null and bandwidth is true;";
-      $sql_query_two="select domain||'(ipv6)' as domain, ipv6 as ipv6 from serverlookup where ipv6 is not null and bandwidth is true;";
+      $sql_query_one="select distinct(src) from rawpacketdata;";
+      $sql_query_two="select distinct(dest) from rawpacketdata;";
       $list = $dbh1->query($sql_query_one) or die('error');
       $list_two = $dbh1->query($sql_query_two) or die('error');
       //The following part recursively create options to show up in the box
@@ -366,9 +366,9 @@ function populateZonePack() {
     ?>
         
       zones += "<option value=\"";
-      zones += "<?php echo $row_list["ipv4"]; ?>";
+      zones += "<?php echo $row_list["src"]; ?>";
       zones += "\">"
-      zones += "<?php echo $row_list["domain"]; ?>";
+     // zones += "<?php echo $row_list["domain"]; ?>";
       zones += "</option>";
     <?php
       endwhile;
@@ -378,9 +378,9 @@ function populateZonePack() {
       while($row_list_two = $list_two->fetch(PDO::FETCH_ASSOC)):
     ?>
       zones += "<option value=\"";
-      zones += "<?php echo $row_list_two["ipv6"]; ?>";
+      zones += "<?php echo $row_list_two["dest"]; ?>";
       zones += "\">"
-      zones += "<?php echo $row_list_two["domain"]; ?>";
+      //zones += "<?php echo $row_list_two["domain"]; ?>";
       zones += "</option>";
     <?php
       endwhile;
