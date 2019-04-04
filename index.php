@@ -12,7 +12,7 @@ body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
 </style>
-<body onload="updateClock(); setInterval('updateClock()', 1000 ); populateZone();">
+<body onload="updateClock(); setInterval('updateClock()', 1000 ); populateZonePack();">
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-blue-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
@@ -296,7 +296,7 @@ function updateClock() {
   document.getElementById("clock").innerHTML = Date();
 }
 // Function to populate src zones and des zones when the webpage loads
-function populateZonePack() {
+function populateZone() {
   document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
   document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
   var zones ='';
@@ -344,7 +344,7 @@ function populateZonePack() {
 }
 
 
-function populateZone() {
+function populateZonePack() {
   document.getElementById("startTimePack").defaultValue = "0000-00-00T00:00";
   document.getElementById("endTimePack").defaultValue = "0000-00-00T00:00";
   var zones ='';
