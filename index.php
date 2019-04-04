@@ -296,7 +296,7 @@ function updateClock() {
   document.getElementById("clock").innerHTML = Date();
 }
 // Function to populate src zones and des zones when the webpage loads
-function populateZone() {
+function populateZonePack() {
   document.getElementById("startTime").defaultValue = "0000-00-00T00:00";
   document.getElementById("endTime").defaultValue = "0000-00-00T00:00";
   var zones ='';
@@ -344,7 +344,7 @@ function populateZone() {
 }
 
 
-function populateZonePack() {
+function populateZone() {
   document.getElementById("startTimePack").defaultValue = "0000-00-00T00:00";
   document.getElementById("endTimePack").defaultValue = "0000-00-00T00:00";
   var zones ='';
