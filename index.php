@@ -552,7 +552,7 @@ function pack_default_time() {
     var src = document.getElementById("browser1Pack").value;
     var dest = document.getElementById("browser2Pack").value; 
         console.log(src);
-        console.log(des);  
+        console.log(dest);  
         var xhttp;
         var parameter = "src=" + src + "&dest=" + dest;
         
