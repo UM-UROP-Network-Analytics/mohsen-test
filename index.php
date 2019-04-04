@@ -169,12 +169,12 @@ body {font-size:16px;}
         </tr>
         <tr>
           <td>
-            <input list="srcList" name="src" id ="browser1Pack" onchange="limitPackDes(this.value)">
+            <input list="srcListPack" name="src" id ="browser1Pack" onchange="limitPackDes(this.value)">
             <datalist id="srcListPack">
             </datalist>
           </td>
           <td>
-            <input list="desList" name="des" id ="browser2Pack" onchange="limitPackSrc(this.value)">
+            <input list="desListPack" name="des" id ="browser2Pack" onchange="limitPackSrc(this.value)">
             <datalist id="desListPack">
             </datalist>
           </td>
