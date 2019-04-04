@@ -368,7 +368,7 @@ function populateZonePack() {
       zones += "<option value=\"";
       zones += "<?php echo $row_list["src"]; ?>";
       zones += "\">"
-     // zones += "<?php echo $row_list["domain"]; ?>";
+      
       zones += "</option>";
     <?php
       endwhile;
@@ -380,7 +380,7 @@ function populateZonePack() {
       zones += "<option value=\"";
       zones += "<?php echo $row_list_two["dest"]; ?>";
       zones += "\">"
-      //zones += "<?php echo $row_list_two["domain"]; ?>";
+      
       zones += "</option>";
     <?php
       endwhile;
