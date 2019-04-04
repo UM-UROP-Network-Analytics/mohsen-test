@@ -144,7 +144,7 @@ body {font-size:16px;}
           </td>
     </form>      
           <td>
-            <button type="reset" onclick="populateZone()" id = "button2" class="w3-button w3-black">Reset</button>
+            <button type="reset" onclick="populateZonePack()" id = "button2" class="w3-button w3-black">Reset</button>
           </td>
         </tr>
       </table>
