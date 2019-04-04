@@ -367,7 +367,7 @@ function populateZonePack() {
         
       tones += "<option value=\"";
       tones += "<?php echo $row_list["src"]; ?>";
-      tones += "\">"
+      
       
       tones += "</option>";
     <?php
@@ -379,7 +379,7 @@ function populateZonePack() {
     ?>
       tones += "<option value=\"";
       tones += "<?php echo $row_list_two["dest"]; ?>";
-      tones += "\">"
+      
       
       tones += "</option>";
     <?php
