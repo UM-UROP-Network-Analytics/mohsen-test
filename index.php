@@ -347,7 +347,7 @@ function populateZone() {
 function populateZonePack() {
   document.getElementById("startTimePack").defaultValue = "0000-00-00T00:00";
   document.getElementById("endTimePack").defaultValue = "0000-00-00T00:00";
-  var tones ='';
+  var zones ='';
     //The following php module is used to connect to the database
     <?php
       $host        = "psdb.aglt2.org";
@@ -365,11 +365,11 @@ function populateZonePack() {
       while($row_list = $list->fetch(PDO::FETCH_ASSOC)):
     ?>
         
-      tones += "<option value=\"";
-      tones += "<?php echo $row_list["src"]; ?>";
-      tones += "\">"
-      tones += "<?php echo $row_list["src"]; ?>";
-      tones += "</option>";
+      zones += "<option value=\"";
+      zones += "<?php echo $row_list["src"]; ?>";
+      zones += "\">"
+      zones += "<?php echo $row_list["src"]; ?>";
+      zones += "</option>";
     <?php
       endwhile;
     ?>
@@ -377,18 +377,18 @@ function populateZonePack() {
     <?php
       while($row_list_two = $list_two->fetch(PDO::FETCH_ASSOC)):
     ?>
-      tones += "<option value=\"";
-      tones += "<?php echo $row_list_two["dest"]; ?>";
-      tones += "\">"
-      tones += "<?php echo $row_list["dest"]; ?>";
-      tones += "</option>";
+      zones += "<option value=\"";
+      zones += "<?php echo $row_list_two["dest"]; ?>";
+      zones += "\">"
+      zones += "<?php echo $row_list_two["dest"]; ?>";
+      zones += "</option>";
     <?php
       endwhile;
       pg_close($dbh1);
     ?>
     console.log(tones);
-    document.getElementById("srcListPack").innerHTML = tones;
-    document.getElementById("desListPack").innerHTML = tones;
+    document.getElementById("srcListPack").innerHTML = zones;
+    document.getElementById("desListPack").innerHTML = zones;
 }
 //This function is used to limit the destination when a source is selected
 function limitDes(str) {
