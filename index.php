@@ -347,7 +347,7 @@ function populateZone() {
 function populateZonePack() {
   document.getElementById("startTimePack").defaultValue = "0000-00-00T00:00";
   document.getElementById("endTimePack").defaultValue = "0000-00-00T00:00";
-  var zones ='';
+  var tones ='';
     //The following php module is used to connect to the database
     <?php
       $host        = "psdb.aglt2.org";
@@ -357,19 +357,19 @@ function populateZonePack() {
       $user = "postgres";
       $password = "xzk3136";
       $dbh1 = new PDO( "pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
-      $sql_query_one="select distinct(src) from rawpacketdata;";
-      $sql_query_two="select distinct(dest) from rawpacketdata;";
+      $sql_query_one="select src from packetsrc;";
+      $sql_query_two="select dest from packetdest";
       $list = $dbh1->query($sql_query_one) or die('error');
       $list_two = $dbh1->query($sql_query_two) or die('error');
       //The following part recursively create options to show up in the box
       while($row_list = $list->fetch(PDO::FETCH_ASSOC)):
     ?>
         
-      zones += "<option value=\"";
-      zones += "<?php echo $row_list["src"]; ?>";
-      zones += "\">"
+      tones += "<option value=\"";
+      tones += "<?php echo $row_list["src"]; ?>";
+      tones += "\">"
       
-      zones += "</option>";
+      tones += "</option>";
     <?php
       endwhile;
     ?>
@@ -377,18 +377,18 @@ function populateZonePack() {
     <?php
       while($row_list_two = $list_two->fetch(PDO::FETCH_ASSOC)):
     ?>
-      zones += "<option value=\"";
-      zones += "<?php echo $row_list_two["dest"]; ?>";
-      zones += "\">"
+      tones += "<option value=\"";
+      tones += "<?php echo $row_list_two["dest"]; ?>";
+      tones += "\">"
       
-      zones += "</option>";
+      tones += "</option>";
     <?php
       endwhile;
       pg_close($dbh1);
     ?>
     
-    document.getElementById("srcListPack").innerHTML = zones;
-    document.getElementById("desListPack").innerHTML = zones;
+    document.getElementById("srcListPack").innerHTML = tones;
+    document.getElementById("desListPack").innerHTML = tones;
 }
 //This function is used to limit the destination when a source is selected
 function limitDes(str) {
@@ -555,6 +555,7 @@ function pack_default_time() {
         console.log(dest);  
         var xhttp;
         var parameter = "src=" + src + "&dest=" + dest;
+        console.log(parameter);
         
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xhttp=new XMLHttpRequest();
