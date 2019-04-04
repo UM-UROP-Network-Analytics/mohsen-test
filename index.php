@@ -431,7 +431,7 @@ function limitPackDes(str) {
         {// code for IE6, IE5
             xhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/limPacketDest.php", true);
+        xhttp.open("POST", "http://psdb.aglt2.org/mohsen-test/limPacketDest.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange=function()
         {
@@ -491,7 +491,7 @@ function limitPackSrc(str) {
         {// code for IE6, IE5
             xhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhttp.open("POST", "http://psdb.aglt2.org/web-interface/limPacketSrc.php", true);
+        xhttp.open("POST", "http://psdb.aglt2.org/mohsen-test/limPacketSrc.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange=function()
         {
