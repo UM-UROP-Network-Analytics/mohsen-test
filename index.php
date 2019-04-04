@@ -12,7 +12,7 @@ body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
 </style>
-<body onload="updateClock(); setInterval('updateClock()', 1000 ); populateZonePack();">
+<body onload="updateClock(); setInterval('updateClock()', 1000 ); populateZone();">
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-blue-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
@@ -338,7 +338,7 @@ function populateZone() {
       endwhile;
       pg_close($dbh1);
     ?>
-    
+    console.log(zones);
     document.getElementById("srcList").innerHTML = zones;
     document.getElementById("desList").innerHTML = zones;
 }
