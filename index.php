@@ -386,7 +386,7 @@ function populateZonePack() {
       endwhile;
       pg_close($dbh1);
     ?>
-    
+    console.log(tones);
     document.getElementById("srcListPack").innerHTML = tones;
     document.getElementById("desListPack").innerHTML = tones;
 }
