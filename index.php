@@ -12,7 +12,7 @@ body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
 </style>
-<body onload="updateClock(); setInterval('updateClock()', 1000 ); populateZonePack();">
+<body onload="updateClock(); setInterval('updateClock()', 1000 ); populateZone();">
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-blue-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
@@ -344,52 +344,6 @@ function populateZone() {
 }
 
 
-function populateZonePack() {
-  document.getElementById("startTimePack").defaultValue = "0000-00-00T00:00";
-  document.getElementById("endTimePack").defaultValue = "0000-00-00T00:00";
-  var zones ='';
-    //The following php module is used to connect to the database
-    <?php
-      $host        = "psdb.aglt2.org";
-      #$host        = "localhost";
-      $port        = "5432";
-      $dbname      = "psdb_urop";
-      $user = "postgres";
-      $password = "xzk3136";
-      $dbh1 = new PDO( "pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
-      $sql_query_one="select src from packetsrc;";
-      $sql_query_two="select dest from packetdest";
-      $list = $dbh1->query($sql_query_one) or die('error');
-      $list_two = $dbh1->query($sql_query_two) or die('error');
-      //The following part recursively create options to show up in the box
-      while($row_list = $list->fetch(PDO::FETCH_ASSOC)):
-    ?>
-        
-      zones += "<option value=\"";
-      zones += "<?php echo $row_list["src"]; ?>";
-      zones += "\">"
-      zones += "<?php echo $row_list["src"]; ?>";
-      zones += "</option>";
-    <?php
-      endwhile;
-    ?>
-    
-    <?php
-      while($row_list_two = $list_two->fetch(PDO::FETCH_ASSOC)):
-    ?>
-      zones += "<option value=\"";
-      zones += "<?php echo $row_list_two["dest"]; ?>";
-      zones += "\">"
-      zones += "<?php echo $row_list_two["dest"]; ?>";
-      zones += "</option>";
-    <?php
-      endwhile;
-      pg_close($dbh1);
-    ?>
-    console.log(tones);
-    document.getElementById("srcListPack").innerHTML = zones;
-    document.getElementById("desListPack").innerHTML = zones;
-}
 //This function is used to limit the destination when a source is selected
 function limitDes(str) {
     
@@ -419,33 +373,6 @@ function limitDes(str) {
         }
 }
 
-function limitPackDes(str) {
-    
-        var xhttp;
-        var parameter = "src=" + str;
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xhttp.open("POST", "http://psdb.aglt2.org/mohsen-test/limPacketDest.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.onreadystatechange=function()
-        {
-            if (xhttp.readyState==4 && xhttp.status==200)
-            {
-                document.getElementById("desListPack").innerHTML= xhttp.responseText;
-            }
-        }
-        
-        xhttp.send(parameter);
-        if(document.getElementById("browser2Pack").value != '') {
-            pack_default_time();
-        }
-}
 //This function is used to limit the field of source when a destination is selected
 function limitSrc(str) {
     
@@ -478,36 +405,7 @@ function limitSrc(str) {
     
 }
 
-function limitPackSrc(str) {
-    
-        var xhttp;
-        var parameter = "des=" + str;
-        //alert(parameter); //To delete
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xhttp.open("POST", "http://psdb.aglt2.org/mohsen-test/limPacketSrc.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.onreadystatechange=function()
-        {
-            if (xhttp.readyState==4 && xhttp.status==200)
-            {
-                document.getElementById("srcListPack").innerHTML= xhttp.responseText;
-            }
-        }
-        
-        xhttp.send(parameter);
-        
-        if(document.getElementById("browser1Pack").value != '') {
-            pack_default_time();
-        }
-    
-}
+
 //When a source and destination is selected, the time zones will be popultated based on the inputs
 function default_time() {
     var src = document.getElementById("browser1").value;
@@ -548,47 +446,6 @@ function default_time() {
     
 }
 
-function pack_default_time() {
-    var src = document.getElementById("browser1Pack").value;
-    var dest = document.getElementById("browser2Pack").value; 
-        console.log(src);
-        console.log(dest);  
-        var xhttp;
-        var parameter = "src=" + src + "&dest=" + dest;
-        console.log(parameter);
-        
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xhttp=new XMLHttpRequest();
-        } else {// code for IE6, IE5
-            xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xhttp.open("POST", "http://psdb.aglt2.org/mohsen-test/get_packet_time.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.onreadystatechange=function()
-        {
-            if (xhttp.readyState==4 && xhttp.status==200)
-            {
-                var response = xhttp.responseText;
-                response = response.slice(0,-3);
-                var ip1 = response.substr(response.length - 19);
-                var ip2 = response.slice(0,-22);
-                ip1 = ip1.replace(/ /g,"T");
-                ip2 = ip2.replace(/ /g,"T");
-                document.getElementById("startTimePack").defaultValue = ip2;
-                document.getElementById("endTimePack").defaultValue = ip1;
-                if (!response) {
-                    document.getElementById("startTimePack").defaultValue = "0000-00-00T00:00";
-                    document.getElementById("endTimePack").defaultValue = "0000-00-00T00:00";
-                }
-            }
-        }
-        
-        
-        xhttp.send(parameter);
-        
-    
-    
-}
 </script>
 
 </body>
