@@ -78,9 +78,9 @@ body {font-size:16px;}
   </div>
 
 
-   <a href="http://psdb.aglt2.org/mohsen-test/pipeline_status.html"> <h2 class="w3-xxlarge w3-text-blue-grey"><b>Click to check the status of pipeline.</b></h2></a>
+   <a href="http://psdb.aglt2.org/mohsen-test/pipeline_status.html"> <h4 class="w3-xxlarge w3-text-blue-grey">Click to check the status of pipeline.</h4></a>
 
-   
+
   
   <!-- optional, will us the following in the future. -->
   <!-- Photo grid (modal) -->
