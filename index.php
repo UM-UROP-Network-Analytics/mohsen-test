@@ -78,7 +78,7 @@ body {font-size:16px;}
   </div>
 
 
-  Click <a href="http://psdb.aglt2.org/web-interface/pipeline_status.html">to check the status of pipeline</a>
+  Click <a href="http://psdb.aglt2.org/mohsen-test/pipeline_status.html">to check the status of pipeline</a>
   
   <!-- optional, will us the following in the future. -->
   <!-- Photo grid (modal) -->
