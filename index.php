@@ -76,6 +76,9 @@ body {font-size:16px;}
       <p>To use this toolkit, please select your source site, destination site. The time range will be automatically filled for you, fetching the earlest and latest timestamp availabe for your query. You can also customize the timestamp box on your own.
     </p>
   </div>
+
+
+  Click <a href="http://psdb.aglt2.org/web-interface/pipeline_status.html">to check the status of pipeline</a>
   
   <!-- optional, will us the following in the future. -->
   <!-- Photo grid (modal) -->
